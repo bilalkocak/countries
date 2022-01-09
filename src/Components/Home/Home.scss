@@ -1,4 +1,12 @@
-.homeContainer {
+@import "src/Styles/theme";
+
+.home-container {
+  .home-filter {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 20px;
+  }
+
   .cards {
     display: flex;
     flex-wrap: wrap;

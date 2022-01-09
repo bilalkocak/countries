@@ -1,0 +1,28 @@
+@import "src/Styles/theme";
+
+.search {
+  border-radius: 8px;
+  padding: 10px 20px;
+  background-color: $background-color-dark-second;
+  display: flex;
+  align-items: center;
+  width: 450px;
+
+  input {
+    background-color: transparent;
+    border: none;
+    height: 30px;
+    width: 100%;
+    margin-left: 10px;
+    outline: none;
+    color: $text-color-dark;
+  }
+
+  svg {
+    width: 24px;
+
+    path {
+      fill: $text-color-dark;
+    }
+  }
+}
