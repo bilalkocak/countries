@@ -1,11 +1,14 @@
 import React from 'react';
-import Header from "./Header/Header";
+import Header from "../Header/Header";
+import './Layout.scss'
 
 const Layout = ({children}) => {
     return (
         <div>
             <Header/>
-            {children}
+            <div className={'app-page-content'}>
+                {children}
+            </div>
         </div>
     );
 };
