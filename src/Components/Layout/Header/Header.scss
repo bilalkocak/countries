@@ -59,6 +59,15 @@
   }
 }
 
+@media (max-width: 540px) {
+  .header {
+    &-content {
+      font-size: 16px;
+    }
+  }
+}
+
+
 
 
 

@@ -106,3 +106,25 @@
   }
 }
 
+@media (max-width: 540px) {
+  .detail-content {
+    flex-direction: column;
+
+    img {
+      width: 100% !important;
+    }
+
+    &-info {
+      width: 100% !important;
+
+      &-content {
+        flex-direction: column;
+      }
+    }
+
+
+    .home-select {
+      width: 200px !important;
+    }
+  }
+}
