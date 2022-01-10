@@ -1,21 +1,30 @@
 import React, {useEffect, useState} from 'react';
-import axios from "axios";
 import Card from "../Card/Card";
-import {API_URL} from "../../constant";
 import './Home.scss'
 import Search from "../Search/Search";
+import {fetchAll, searchCountry} from "../../service";
 
 const Home = () => {
     const [countries, setCountries] = useState([])
     const [search, setSearch] = useState([])
+
     useEffect(() => {
-        axios.get(`${API_URL}/all`).then(function (response) {
-            setCountries(response.data)
-        })
-            .catch(function (error) {
-                console.log(error);
+        fetchAll()
+            .then(response => {
+                setCountries(response.data)
             })
+            .catch(error => console.log(error))
     }, [])
+
+    useEffect(() => {
+        if (search.length > 2) {
+            searchCountry(search)
+                .then(response => {
+                    setCountries(response.data)
+                })
+                .catch(error => console.log(error))
+        }
+    }, [search])
     return (
         <div className={'home-container'}>
             <div className={'home-filter'}>
@@ -27,7 +36,7 @@ const Home = () => {
             <div className={'cards'}>
                 {
                     countries.map(country => {
-                        return <Card country={country} key={country.name.common}/>
+                        return <Card country={country} key={country.name}/>
                     })
                 }
             </div>
