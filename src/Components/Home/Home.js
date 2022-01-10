@@ -15,11 +15,27 @@ const Home = () => {
         _fetchAll();
     }, [])
 
+
     useEffect(() => {
+        const _search = () => {
+            searchCountry(search)
+                .then(response => {
+                    setCountries(response.data)
+                })
+                .catch(error => console.log(error))
+        }
         search.length > 2 ? _search() : _fetchAll();
     }, [search])
 
     useEffect(() => {
+        const _fetchFiltered = () => {
+            filterByContinent(continent.value)
+                .then(response => {
+                    setCountries(response.data)
+                })
+                .catch(error => console.log(error))
+        }
+
         continent.value ? _fetchFiltered() : _fetchAll();
     }, [continent])
 
@@ -31,21 +47,7 @@ const Home = () => {
             .catch(error => console.log(error))
     }
 
-    const _fetchFiltered = () => {
-        filterByContinent(continent.value)
-            .then(response => {
-                setCountries(response.data)
-            })
-            .catch(error => console.log(error))
-    }
 
-    const _search = () => {
-        searchCountry(search)
-            .then(response => {
-                setCountries(response.data)
-            })
-            .catch(error => console.log(error))
-    }
     return (
         <div className={'home-container'}>
             <div className={'home-filter'}>
