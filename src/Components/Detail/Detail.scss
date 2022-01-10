@@ -48,8 +48,17 @@
       max-width: 530px;
 
       h3 {
-        font-size: 35px;
+        font-size: 28px;
         margin-bottom: 30px;
+      }
+
+      .info-line {
+        margin-bottom: 8px;
+        color: $text-color-dark-second;
+
+        .info-title {
+          color: $text-color-dark;
+        }
       }
 
       &-content {
@@ -71,6 +80,29 @@
       }
     }
   }
-
-
 }
+
+.app--light {
+  .detail-container {
+    svg {
+      margin-right: 5px;
+
+      path {
+        fill: $text-color-light;
+      }
+    }
+
+    .button {
+      border-color: $text-color-light-second;
+    }
+
+    .info-line {
+      color: $text-color-light-second;
+
+      .info-title {
+        color: $text-color-light
+      }
+    }
+  }
+}
+

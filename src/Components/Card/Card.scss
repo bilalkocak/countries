@@ -9,7 +9,7 @@
   cursor: pointer;
   transition: all .2s ease-in-out;
 
-  &:hover{
+  &:hover {
     transform: scale(1.05);
   }
 
@@ -18,7 +18,6 @@
     background-repeat: round;
     background-color: #ffffff2e;
     border-radius: 8px 8px 0 0;
-
   }
 
 
@@ -47,5 +46,22 @@
 .app--dark {
   .country-card {
     background-color: $background-color-dark-second;
+  }
+}
+
+
+.app--light {
+  .country-card {
+    background-color: $background-color-light-second !important;
+
+    &-info {
+      span {
+        color: $text-color-light-second;
+      }
+
+      .infoTitle {
+        color: $text-color-light;
+      }
+    }
   }
 }

@@ -1,7 +1,23 @@
+@import "src/Styles/theme";
+
 .select-indicator {
   margin-right: 12px;
+
+  svg{
+    path{
+      fill: $text-color-dark;
+    }
+  }
 }
 
 .select-label {
   margin-bottom: 4px;
 }
+
+.app--light {
+  .chip {
+    border-color: $text-color-light;
+  }
+}
+
+

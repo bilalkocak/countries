@@ -2,7 +2,7 @@ import './App.scss';
 import {Routes, Route} from "react-router-dom";
 import Home from "./Components/Home/Home";
 import Detail from "./Components/Detail/Detail";
-import Layout from "./Components/Layout/Layout";
+import Layout from "./Components/Layout/Layout/Layout";
 import ThemeController from "./Components/ThemeController";
 import {StateProvider} from "./Context/ThemeContext";
 

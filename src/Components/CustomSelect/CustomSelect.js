@@ -1,34 +1,51 @@
-import React from "react";
+import React, {useContext} from "react";
 import PropTypes from "prop-types";
 import Select from "react-select";
 import {IcArrowDropDown} from "../Icons";
 import classNames from "classnames";
+import {ThemeContext} from "../../Context/ThemeContext";
+import './CustomSelect.scss'
 
-const primary = "#232323";
-const gray = "#c9c9c9";
+
+const dark = {
+    text: "#c6ccd0",
+    secondText: "#2b3743",
+    background: "#202d36",
+    secondBackground: "#2b3743",
+}
+
+const light = {
+    text: "#0e1113",
+    secondText: "#3d4444",
+    background: "#fafafa",
+    secondBackground: "#ffffff",
+}
 
 const CustomSelect = ({
-                           options,
-                           selectedOption,
-                           handleChange,
-                           placeholder,
-                           searchable,
-                           customClass,
-                           height,
-                           label,
-                           defaultValue,
-                           ...props
-                       }) => {
+                          options,
+                          selectedOption,
+                          handleChange,
+                          placeholder,
+                          searchable,
+                          customClass,
+                          height,
+                          label,
+                          defaultValue,
+                          ...props
+                      }) => {
+    const [theme] = useContext(ThemeContext);
+    const isDark = () => {
+        return theme.mode === "dark"
+    }
     const customStyles = {
-        menu: (provided, state) => ({
+        menu: (provided) => ({
             ...provided,
             width: "100%",
             boxShadow: "none",
-            color: state.selectProps.menuColor,
             marginTop: 0,
             padding: 0,
             border: "1px solid",
-            borderColor: primary,
+            borderColor: isDark() ? dark.background : light.background,
             borderRadius: "0 0 4px 4px",
             borderTop: "none",
         }),
@@ -36,13 +53,14 @@ const CustomSelect = ({
             ...provided,
             padding: 0,
         }),
-        option: (provided, state) => ({
+        option: (provided) => ({
             ...provided,
-            color: primary,
-            backgroundColor: state.isSelected ? "#f4f4f4" : "white",
+            color: isDark() ? dark.text : light.text,
+            backgroundColor: isDark() ? dark.secondBackground : light.secondBackground,
             width: "100%",
             "&:hover": {
-                backgroundColor: "#f4f4f4",
+                backgroundColor: isDark() ? dark.background : light.background,
+                cursor: "pointer"
             },
             "&:last-child": {
                 borderRadius: "0 0 4px 4px",
@@ -61,7 +79,10 @@ const CustomSelect = ({
             ...provided,
             marginTop: height < 45 && -8,
         }),
-        singleValue: (provided) => ({ ...provided, marginTop: height < 45 && -8 }),
+        singleValue: (provided) => ({
+            ...provided, marginTop: height < 45 && -8, color: isDark() ? dark.text : light.text,
+            backgroundColor: isDark() ? dark.secondBackground : light.secondBackground,
+        }),
         input: (provided) => ({
             ...provided,
         }),
@@ -71,18 +92,16 @@ const CustomSelect = ({
         }),
         control: (provided, state) => ({
             ...provided,
-            borderColor: state.menuIsOpen ? primary : gray,
             boxShadow: "none",
-            "&:hover": {
-                borderColor: state.menuIsOpen ? primary : gray,
-                borderBottomColor: gray,
-            },
             borderRadius: state.menuIsOpen ? "4px 4px 0 0" : 4,
-            borderBottomColor: gray,
+            borderColor: isDark() ? dark.secondBackground : light.secondBackground,
+            color: isDark() ? dark.text : light.text,
+            backgroundColor: isDark() ? dark.secondBackground : light.secondBackground,
             minHeight: height,
             height,
         }),
     };
+
 
     return (
         <div
@@ -95,7 +114,7 @@ const CustomSelect = ({
                 components={{
                     DropdownIndicator: () => (
                         <div className={"select-indicator"}>
-                            <IcArrowDropDown />
+                            <IcArrowDropDown/>
                         </div>
                     ),
                     IndicatorSeparator: () => null,
@@ -112,12 +131,12 @@ const CustomSelect = ({
         </div>
     );
 };
-CustomSelect.defaultProps = { searchable: false, height: 48, label: null };
+CustomSelect.defaultProps = {searchable: false, height: 48, label: null};
 
 CustomSelect.propTypes = {
     searchable: PropTypes.bool,
     options: PropTypes.arrayOf(PropTypes.object),
-    selectedOption: PropTypes.string,
+    selectedOption: PropTypes.object,
     handleChange: PropTypes.func,
     placeholder: PropTypes.string,
     height: PropTypes.number,

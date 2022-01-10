@@ -26,3 +26,13 @@
     }
   }
 }
+
+.app--light {
+  .search {
+    background-color: $background-color-light-second !important;
+
+    input {
+      color: $text-color-light-second;
+    }
+  }
+}

@@ -1,3 +1,5 @@
+@import "src/Styles/theme";
+
 .chip {
   border: 1px solid #a3acb2;
   padding: 5px 10px;
@@ -5,3 +7,11 @@
   align-items: center;
   justify-content: center;
 }
+
+.app--light {
+  .chip {
+    border-color: $text-color-light-second;
+  }
+}
+
+
