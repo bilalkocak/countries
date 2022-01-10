@@ -6,7 +6,7 @@ const Card = ({country}) => {
     let navigate = useNavigate();
 
     function handleClick() {
-        navigate(`/${country.callingCodes[0]}`);
+        navigate(`/${country.alpha3Code}`);
     }
     return (
         <div className={'country-card'} onClick={handleClick}>

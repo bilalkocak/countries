@@ -1,8 +1,8 @@
 import axios from "axios";
 import {API_URL} from "./constant";
 
-export const fetchDetail =(id)=>{
-    return axios.get(`${API_URL}/callingcode/${id}`)
+export const fetchDetail =(code)=>{
+    return axios.get(`${API_URL}/alpha?codes=${code}`)
 }
 
 export const fetchAll = () => {

@@ -60,11 +60,11 @@ const Detail = () => {
                                 </div>
                                 <div className={'info-line'}>
                                     <span className={'info-title'}>Currencies:</span>
-                                    <span>{state?.currencies.map(currency => currency.code).join()}</span>
+                                    <span>{state?.currencies?.map(currency => currency.code).join()}</span>
                                 </div>
                                 <div className={'info-line'}>
                                     <span className={'info-title'}>Languages:</span>
-                                    <span>{state?.languages.map(lang => lang.name).join()}</span>
+                                    <span>{state?.languages?.map(lang => lang.name).join()}</span>
                                 </div>
                             </div>
                         </div>
