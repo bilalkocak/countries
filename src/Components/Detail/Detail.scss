@@ -1,0 +1,76 @@
+@import "src/Styles/theme";
+
+.detail-container {
+  .button {
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    user-select: none;
+    cursor: pointer;
+    border: 1px solid #a3acb2;
+
+    svg {
+      margin-right: 5px;
+
+      path {
+        fill: $text-color-dark;
+      }
+    }
+  }
+
+
+  .detail-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    gap: 30px;
+
+    .info-title {
+      font-weight: bold;
+      margin-right: 5px;
+    }
+
+
+    img {
+      width: 600px;
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 530px;
+
+      h3 {
+        font-size: 35px;
+        margin-bottom: 30px;
+      }
+
+      &-content {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .borders-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        align-items: center;
+        gap: 10px;
+
+        .border-title {
+          line-height: 28px;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+
+}
