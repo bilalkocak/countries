@@ -13,3 +13,7 @@ export const fetchAll = () => {
 export const searchCountry = (search) => {
     return axios.get(`${API_URL}/name/${search}`)
 }
+
+export const filterByContinent = (continent) => {
+    return axios.get(`${API_URL}/region/${continent}`)
+}
