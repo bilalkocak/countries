@@ -1,0 +1,51 @@
+@import "../../Styles/theme";
+
+.country-card {
+  width: 270px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+
+  &:hover{
+    transform: scale(1.05);
+  }
+
+  &-flag {
+    height: 200px;
+    background-repeat: round;
+    background-color: #ffffff2e;
+    border-radius: 8px 8px 0 0;
+
+  }
+
+
+  &-info {
+    padding: 30px 20px;
+
+    .name {
+      font-weight: bold;
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+
+    span {
+      font-size: 14px;
+      margin-right: 5px;
+      color: $text-color-dark-second;
+    }
+
+    .infoTitle {
+      font-weight: bold;
+      color: $text-color-dark;
+    }
+  }
+}
+
+.app--dark {
+  .country-card {
+    background-color: $background-color-dark-second;
+  }
+}
