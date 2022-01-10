@@ -1,0 +1,64 @@
+@import "../../../Styles/theme";
+
+.header {
+  background-color: $background-color-light;
+
+  &-content {
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 26px;
+    font-weight: bold;
+    height: 80px;
+    position: sticky;
+    padding: 0 20px;
+    margin: auto;
+
+    .toggle-button {
+      font-size: 14px;
+      text-transform: capitalize;
+      display: flex;
+      cursor: pointer;
+      user-select: none;
+
+      svg {
+        width: 14px;
+        height: 14px;
+        margin-right: 10px;
+
+        path {
+          fill: $text-color-dark;
+        }
+      }
+    }
+
+  }
+
+}
+
+
+.app--dark {
+  header {
+    background-color: $background-color-dark-second;
+  }
+}
+
+
+.app--light {
+  header {
+    background-color: $background-color-light-second !important;
+
+    .toggle-button {
+      svg {
+        path {
+          fill: $text-color-light;
+        }
+      }
+    }
+  }
+}
+
+
+
+
